@@ -147,21 +147,21 @@ while turn < SIZE**2:
 				gg = 'X' if turn % 2 == 0 else 'O'
 				print(f"Congrats player {gg}")
 				turn = SIZE**2
-				print('why am i here')
 
 			turn +=1
+
 	pygame.display.update()
 
 while True:
-	# game is a tie
+	for event in pygame.event.get():
+		if event.type == pygame.QUIT:
+			sys.exit()
+	
 	if turn < SIZE**2:
 		congrats = "Congrats Player " + gg + " !!!"
 		label = font.render(congrats,1,colors.green)
 		screen.blit(label,(40,10))
-		print() 
-	else:
-		
-
-	for events in pygame.event.get():
-		if event.type == pygame.QUIT:
-			sys.exit()
+		print(congrats) 
+		break
+	else: # game is a tie
+		pass
